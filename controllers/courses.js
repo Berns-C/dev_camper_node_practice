@@ -91,7 +91,7 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
         );
     } else {
         // Check if has same course title.
-        const course = await Course.findOne({ title: req.body.title });
+        let course = await Course.findOne({ title: req.body.title });
         if (course) {
             return next(
                 new ErrorResponse(
